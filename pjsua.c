@@ -113,7 +113,6 @@ static void error_exit(const char *title, pj_status_t status)
 
 void demo_pj_answer(void) {
 	pjsua_call_info ci;
-	char info[256];
 
 	if (current_call != PJSUA_INVALID_ID) {
 		pjsua_call_answer(current_call, 200, NULL, NULL);

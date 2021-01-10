@@ -26,13 +26,14 @@ NUKLEAR_LDLIBS := -lX11 -lXext -lm
 LDLIBS := $(PJSIP_LDLIBS) $(NUKLEAR_LDLIBS)
 
 CPPFLAGS += -I$(PJSIP_INSTALL_DIR)/include -I$(NUKLEAR_INSTALL_DIR)
+CFLAGS += -Wall -Werror -Wno-misleading-indentation -Wno-unused-function
 LDFLAGS += -L$(PJSIP_INSTALL_DIR)/lib $(LDLIBS)
 
 SRCS = main.c pjsua.c nuklear_main.c
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 all: $(OBJS)
 	$(CC) -o $(EXE) $(OBJS) $(LDFLAGS)

@@ -162,7 +162,6 @@ demo_nk_main(void)
     void *fb = NULL;
     rawfb_pl pl;
     unsigned char tex_scratch[512 * 512];
-	int call_active = 0;
 
     /* X11 */
     memset(&xw, 0, sizeof xw);

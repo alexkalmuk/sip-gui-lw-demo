@@ -85,6 +85,8 @@ static void demo_nk_decline_btn(struct nk_context *ctx,
 
 static void demo_nk_gui(struct nk_context *ctx, struct nk_image *im_accept,
 		struct nk_image *im_decline) {
+	//call_info->state = CALL_INCOMING;
+
 	if (nk_begin(ctx, "Demo", nk_rect(50, 50, WIN_WIDTH, WIN_HEIGHT),
 			NK_WINDOW_NO_SCROLLBAR)) {
 		int answer_pressed = 0, decline_pressed = 0;
@@ -122,6 +124,8 @@ static void demo_nk_gui(struct nk_context *ctx, struct nk_image *im_accept,
 				nk_spacing(ctx, 4);
 				demo_nk_decline_btn(ctx, im_decline, &decline_pressed);
 				nk_spacing(ctx, 4);
+				break;
+			default:
 				break;
 			}
 		}
