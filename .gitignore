@@ -3,3 +3,5 @@
 .*.sw[a-z]
 *~
 /tags
+*.o
+pjsua_nuklear_demo
