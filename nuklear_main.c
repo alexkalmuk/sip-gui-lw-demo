@@ -45,7 +45,7 @@
 #define NK_XLIBSHM_IMPLEMENTATION
 #define NK_RAWFB_IMPLEMENTATION
 #define NK_INCLUDE_FONT_BAKING
-#define NK_INCLUDE_DEFAULT_FONT
+//#define NK_INCLUDE_DEFAULT_FONT
 #define NK_INCLUDE_SOFTWARE_FONT
 
 #define NK_XLIB_INCLUDE_STB_IMAGE
@@ -53,6 +53,8 @@
 #include "nuklear.h"
 #include "demo/x11_rawfb/nuklear_rawfb.h"
 #include "demo/x11_rawfb/nuklear_xlib.h"
+
+#include "nuklear_rawfb_with_file_font.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "example/stb_image.h"
@@ -194,7 +196,8 @@ demo_nk_main(void)
         return 0;
 
     /* GUI */
-    rawfb = nk_rawfb_init(fb, tex_scratch, xw.width, xw.height, xw.width * 4, pl);
+    rawfb = nk_rawfb_init_with_file_font(fb, tex_scratch, xw.width, xw.height, xw.width * 4,
+		pl, "fonts/Roboto-Regular.ttf");
     if (!rawfb) running = 0;
 
     #ifdef INCLUDE_STYLE
